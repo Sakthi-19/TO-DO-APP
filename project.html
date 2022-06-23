@@ -8,20 +8,76 @@
     <link href="todo.css" type="text/css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
 </head>
 <body>
 
     <div class="mb-3">
         <label for="form" class="form-label">TO-DO LIST</label>
         <input type="text" class="form-control" id="form" placeholder="Type here...">
+        <br>
+        <input type="datetime-local" id="timing">
+        <br> 
+        
+        <div id="button">
+            <br> 
+
+            <button type="button" class="btn btn-primary" onclick="insert()">ADD</button>
+             <br>
+    
+             
+          <script>
+            function insert() {
+                if(document.getElementById("form").value.length==0){
+                    alert("Enter the Tasks correctly...")
+                }
+                else if(document.getElementById("timing").value.length==0){
+                    alert("Enter the Time correctly...")
+                }
+
+             else{
+                 document.querySelector('#tasks').innerHTML +=`
+                 <li class="check" onclick="strike">${document.querySelector('#form').value}
+                    ${document.querySelector('#timing').value}</li>` 
+                 document.getElementById("form").value="";
+                 document.getElementById("timing").value="";}
+    }     </script>
+    
+          </div>
+
+          <br>
+
+          <ul id="tasks">
+
+          </ul>
+        
+       
+        
       </div>
 
-    <div id="list" class="btn">
-          <button id="btn1" onclick="add()">ADD</button>
         
-    </div>
+      
+
+     
 
     <div id="completed"></div>
+
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Warning</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Enter TO-DO and Date Correctly...</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
