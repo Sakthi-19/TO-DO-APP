@@ -37,11 +37,29 @@
 
              else{
                  document.querySelector('#tasks').innerHTML +=`
-                 <li class="check" onclick="strike">${document.querySelector('#form').value}
-                    ${document.querySelector('#timing').value}</li>` 
+                 <li class="check" id="listing" onclick="del(this)" >${document.querySelector('#form').value}
+                    ${document.querySelector('#timing').value}  <button onclick="del(this)">Completed</button></li>`
+                    let todotasks=document.getElementById("form").value; 
+                    let timezone=document.getElementById("timing").value;
+                    localStorage.setItem("mytask", todotasks);
+                    localStorage.setItem("mytiming", timezone);
                  document.getElementById("form").value="";
-                 document.getElementById("timing").value="";}
-    }     </script>
+                 document.getElementById("timing").value="";}}
+
+                 
+
+                 function del(elem){
+                     
+                     let variable=localStorage.getItem("mytask");
+                     let vartime=localStorage.getItem("mytiming");
+                     document.querySelector('#comps').innerHTML +=`
+                 <li id="listeditem"  >${variable}
+                    ${vartime}  </li>`
+                     elem. parentNode. removeChild(elem);
+                     
+                    }
+                 
+        </script>
     
           </div>
 
@@ -50,16 +68,17 @@
           <ul id="tasks">
 
           </ul>
+
+          <h4 id="headset">COMPLETED TASKS</h4>
+               <ul id="comps">
+
+              </ul>
         
        
         
       </div>
 
-        
       
-
-     
-
     <div id="completed"></div>
 
     <div class="modal" tabindex="-1">
