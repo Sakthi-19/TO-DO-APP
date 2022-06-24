@@ -21,12 +21,14 @@
         
         <div id="button">
             <br> 
-
-            <button type="button" class="btn btn-primary" onclick="insert()">ADD</button>
+                 <button type="button" class="btn btn-primary" onclick="insert()">ADD</button>
              <br>
-    
-             
-          <script>
+ 
+
+           <script>
+        
+              //script for add todo in the list
+
             function insert() {
                 if(document.getElementById("form").value.length==0){
                     alert("Enter the Tasks correctly...")
@@ -37,25 +39,23 @@
 
              else{
                  document.querySelector('#tasks').innerHTML +=`
-                 <li class="check" id="listing" onclick="del(this)" >${document.querySelector('#form').value}
-                    ${document.querySelector('#timing').value}  <button onclick="del(this)">Completed</button></li>`
-                    let todotasks=document.getElementById("form").value; 
-                    let timezone=document.getElementById("timing").value;
-                    localStorage.setItem("mytask", todotasks);
-                    localStorage.setItem("mytiming", timezone);
-                 document.getElementById("form").value="";
-                 document.getElementById("timing").value="";}}
+                 <li id="listing" onclick="del(this)">${document.querySelector('#form').value + 
+                 document.querySelector('#timing').value}</li><br>`
 
-                 
+                    localStorage.setItem("mytask", document.getElementById("form").value);
+                    localStorage.setItem("mytiming", document.getElementById("timing").value);}
+                 document.getElementById("form").value="";
+                 document.getElementById("timing").value="";}
+
+                 //script for add todo to completed tab and delete todo in the list...
 
                  function del(elem){
-                     
+                      
                      let variable=localStorage.getItem("mytask");
                      let vartime=localStorage.getItem("mytiming");
                      document.querySelector('#comps').innerHTML +=`
-                 <li id="listeditem"  >${variable}
-                    ${vartime}  </li>`
-                     elem. parentNode. removeChild(elem);
+                     <li id="listeditem" >${variable} ${vartime}  </li>`
+                     elem.parentNode.removeChild(elem);
                      
                     }
                  
@@ -76,10 +76,7 @@
         
        
         
-      </div>
-
-      
-    <div id="completed"></div>
+            </div>
 
     <div class="modal" tabindex="-1">
         <div class="modal-dialog">
