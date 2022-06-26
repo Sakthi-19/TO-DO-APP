@@ -1,103 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO-DO LIST</title>
-    <link href="todo.css" type="text/css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    
-</head>
-<body>
+  <head>
+    <title>TO-DO APP</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <div class="mb-3">
-        <label for="form" class="form-label">TO-DO LIST</label>
-        <input type="text" class="form-control" id="form" placeholder="Type here...">
-        <br>
-        <input type="datetime-local" id="timing">
-        <br> 
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     
+    <link href="todo.css" type="text/css" rel="stylesheet"/>
+  </head>
+  <body>
         
-        <div id="button">
-            <br> 
-                 <button type="button" class="btn btn-primary" onclick="insert()">ADD</button>
-             <br>
- 
+    <div class="p-3 mb-2 bg-secondary text-white">
 
-           <script>
-        
-              //script for add todo in the list
-
-            function insert() {
-                if(document.getElementById("form").value.length==0){
-                    alert("Enter the Tasks correctly...")
-                }
-                else if(document.getElementById("timing").value.length==0){
-                    alert("Enter the Time correctly...")
-                }
-
-             else{
-                 document.querySelector('#tasks').innerHTML +=`
-                 <li id="listing" onclick="del(this)">${document.querySelector('#form').value + 
-                 document.querySelector('#timing').value}</li><br>`
-
-                    localStorage.setItem("mytask", document.getElementById("form").value);
-                    localStorage.setItem("mytiming", document.getElementById("timing").value);}
-                 document.getElementById("form").value="";
-                 document.getElementById("timing").value="";}
-
-                 //script for add todo to completed tab and delete todo in the list...
-
-                 function del(elem){
-                      
-                     let variable=localStorage.getItem("mytask");
-                     let vartime=localStorage.getItem("mytiming");
-                     document.querySelector('#comps').innerHTML +=`
-                     <li id="listeditem" >${variable} ${vartime}  </li>`
-                     elem.parentNode.removeChild(elem);
-                     
-                    }
-                 
-        </script>
-    
-          </div>
-
-          <br>
-
-          <ul id="tasks">
-
-          </ul>
-
-          <h4 id="headset">COMPLETED TASKS</h4>
-               <ul id="comps">
-
-              </ul>
-        
-       
-        
-            </div>
-
-    <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Warning</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Enter TO-DO and Date Correctly...</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
+      <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="img.png" alt="" width="40" height="30" class="d-inline-block align-text-top">
+            TO-DO LIST 
+          </a>
         </div>
+      </nav>
+
+      <div class="tasks" id="tasklist">
+        
+          <br>
+        <form>
+          <div class="form-group">
+            <p id="infoInput">Enter To-Do</p>
+            <input type="text" class="form-control" id="exampleInput" aria-describedby="InputHelp" placeholder="">
+            
+          </div>
+          <br>
+          <div class="form-group">
+            <p id="infoDate">Enter date</p>
+            <input type="datetime-local" class="form-control" id="exampleInputTime" placeholder="">
+            <br><br>
+          <button type="submit" class="btn btn-primary" id="btn1">Add Task</button>
+          </div>
+           
+        </form>
+       </div>
+      </div>
+
+      <div id="listedTodo">
+        <h3 id="unli">Uncompleted List</h3>
       </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+      <div id="CompletedTodo">
+        <h3 id="coli">Completed List</h3>
+      </div>
+
+
+
     
-</body>
+
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  </body>
 </html>

@@ -1,18 +1,65 @@
-.mb-3{
-    width: 700px;
-    margin-left: 30px;
+#tasklist{
+    
+    width: 450px;
+    height: 669px;
+   
+    }
+#btn1{
+    position: absolute;
+    margin-left: 350px;
+    margin-top: 220px;
+}
+#infoInput{
+    position: absolute;
     margin-top: 30px;
+    margin-left: 10px;
+    font-style: italic;
 }
-#headset{
-    margin-left: 1300px;
-    margin-top: -210px;
-    width: 150px;
-    height: 500px;
-
+#exampleInput{
+    position: absolute;
+    margin-top: 80px;
+    width: 400px;
+    margin-left: 15px;
 }
-#comps{
-    margin-left: 1300px;
-    margin-top: -400px;
-    width: 150px;
-    height: 500px;
+#infoDate{
+    position: absolute;
+    margin-top: 130px;
+    margin-left: 10px;
+    font-style: italic;
+}
+#exampleInputTime{
+    position: absolute;
+    margin-top: 180px;
+    width: 400px;
+    margin-left: 15px;
+}
+#listedTodo{
+    position: absolute;
+    margin-left: 540px;
+    margin-top: -693px;
+    width: 500px;
+    height: 669px;
+   
+}
+#CompletedTodo{
+    position: absolute;
+    margin-left: 1080px;
+    margin-top: -693px;
+        width: 500px;
+        height: 669px;
+        
+}   
+#unli{
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 0px;
+    font-style: italic;
+    color: white;
+}
+#coli{
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 0px;
+    font-style: italic;
+    color: white;
 }
